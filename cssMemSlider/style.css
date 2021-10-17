@@ -4,6 +4,26 @@
   box-sizing: border-box;
 }
 
+@keyframes textAn {
+  0% {
+    transform: translateX(-150px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes image {
+  0% {
+    transform: translate(150px) rotate(90deg);
+  }
+
+  100% {
+    transform: translate(0, 0) rotate(0);
+  }
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -93,6 +113,7 @@ input:checked + label .span {
   margin: 0;
   font-size: 2rem;
   color: #ffffff;
+  animation: textAn 1s ease-out;
 }
 
 .slider {
@@ -107,6 +128,7 @@ input:checked + label .span {
 
 .slide {
   display: none;
+  animation: image 2s linear;
 }
 
 img {
