@@ -10,7 +10,6 @@ body {
   background-color: #3f3f3f;
   padding: 0;
   margin: 0;
-  min-height: 100vh;
 }
 
 .wrapper {
@@ -19,7 +18,7 @@ body {
   align-items: center;
   justify-content: center;
   flex-grow: 1;
-  padding: 20px 0;
+  padding-top: 20px;
 }
 
 .slider-wrapper {
@@ -99,7 +98,7 @@ input:checked + label .span {
 .slider {
   grid-area: slider;
   width: 100%;
-  height: 791px;
+  height: 770px;
   border: 5px solid #000000;
   border-radius: 10px;
   background-color: #fff;
@@ -113,4 +112,25 @@ input:checked + label .span {
 img {
   width: 100%;
   height: 100%;
+}
+
+@media screen and (max-width: 425px) {
+  .slider {
+    height: 300px;
+    order: 3;
+  }
+
+  .slider-wrapper {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .description {
+    order: 1;
+  }
+
+  label {
+    order: 2;
+    align-self: center;
+  }
 }
