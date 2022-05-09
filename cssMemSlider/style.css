@@ -69,8 +69,8 @@ input:checked + label .span {
   display: flex;
   width: 8vw;
   height: 10vw;
-  max-width: 100px;
-  max-height: 120px;
+  max-width: 15vh;
+  max-height: 15vh;
   border-radius: 50%;
   background-color: transparent;
   cursor: pointer;
@@ -119,7 +119,7 @@ input:checked + label .span {
 .slider {
   grid-area: slider;
   width: 100%;
-  height: 770px;
+  height: 70vh;
   border: 5px solid #000000;
   border-radius: 10px;
   background-color: #fff;
@@ -137,22 +137,20 @@ img {
 }
 
 @media screen and (max-width: 425px) {
-  .slider {
-    height: 300px;
-    order: 3;
-  }
-
   .slider-wrapper {
-    display: flex;
-    flex-direction: column-reverse;
+    grid-template-areas:
+    "slider slider slider slider"
+    "radio1 radio1 radio1 radio1"
+    "desc desc desc desc";
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 20px 0;
   }
 
-  .description {
-    order: 1;
+  .label {
+    margin-left: 20px;
   }
 
-  label {
-    order: 2;
-    align-self: center;
+  .desc {
+    font-size: 20px;
   }
 }
