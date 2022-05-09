@@ -1,0 +1,156 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+@keyframes textAn {
+  0% {
+    transform: translateX(-150px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes image {
+  0% {
+    transform: translate(150px) rotate(90deg);
+  }
+
+  100% {
+    transform: translate(0, 0) rotate(0);
+  }
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  background-color: #3f3f3f;
+  padding: 0;
+  margin: 0;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  padding-top: 20px;
+}
+
+.slider-wrapper {
+  width: 95%;
+  max-width: 85rem;
+  margin: 0 auto;
+  display: grid;
+  grid-template-areas:
+    "slider slider slider slider slider"
+    "desc radio1 radio1 radio1 radio1";
+  grid-template-columns: 10fr 1fr;
+  gap: 20px 0;
+}
+
+input {
+  display: none;
+}
+
+input:active + label .span {
+  background-color: #c0e710 !important;
+}
+
+input:checked + label .span {
+  background-color: #06df84;
+}
+
+.label {
+  display: flex;
+  width: 8vw;
+  height: 10vw;
+  max-width: 15vh;
+  max-height: 15vh;
+  border-radius: 50%;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.label:hover .span {
+  background-color: #f14a08;
+}
+
+.span {
+  display: block;
+  width: 40%;
+  height: 40%;
+  margin: auto;
+  margin-right: 0;
+  border: 3px solid #0db980;
+  border-radius: 50%;
+  background-color: transparent;
+  transition: background-color 0.3s;
+}
+
+.radio1:checked ~ .slider .slide:nth-child(1),
+.radio1:checked ~ .description .desc:nth-child(1),
+.radio2:checked ~ .slider .slide:nth-child(2),
+.radio2:checked ~ .description .desc:nth-child(2),
+.radio3:checked ~ .slider .slide:nth-child(3),
+.radio3:checked ~ .description .desc:nth-child(3),
+.radio4:checked ~ .slider .slide:nth-child(4),
+.radio4:checked ~ .description .desc:nth-child(4) {
+  display: block !important;
+}
+
+.description {
+  grid-area: desc;
+  align-self: center;
+}
+
+.desc {
+  display: none;
+  margin: 0;
+  font-size: 2rem;
+  color: #ffffff;
+  animation: textAn 1s ease-out;
+}
+
+.slider {
+  grid-area: slider;
+  width: 100%;
+  height: 70vh;
+  border: 5px solid #000000;
+  border-radius: 10px;
+  background-color: #fff;
+  overflow: hidden;
+}
+
+.slide {
+  display: none;
+  animation: image 2s linear;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+}
+
+@media screen and (max-width: 425px) {
+  .slider-wrapper {
+    grid-template-areas:
+    "slider slider slider slider"
+    "radio1 radio1 radio1 radio1"
+    "desc desc desc desc";
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 20px 0;
+  }
+
+  .label {
+    margin-left: 20px;
+  }
+
+  .desc {
+    font-size: 20px;
+  }
+}
